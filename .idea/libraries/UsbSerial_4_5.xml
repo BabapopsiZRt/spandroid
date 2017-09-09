@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="UsbSerial-4.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/UsbSerial-4.5.aar/9e535acaf7f9bff6d0ef00fe032dec64/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/UsbSerial-4.5.aar/9e535acaf7f9bff6d0ef00fe032dec64/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
