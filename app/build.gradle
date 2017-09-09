@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 25
+  buildToolsVersion "25.0.2"
+
+  sourceSets {
+    main {
+      jni.srcDirs = []
+      jniLibs.srcDirs = ['libs']
+    }
+  }
+
+  defaultConfig {
+    applicationId "com.royale.royaleandroidexample"
+    minSdkVersion 17
+    targetSdkVersion 25
+    versionCode 1
+    versionName "1.0"
+
+    ndk {
+      moduleName "royaleSample"
+      stl "gnustl_static"
+      ldLibs "log"
+      cFlags "-DTARGET_PLATFORM_ANDROID"
+      abiFilters "arm64-v8a"
+    }
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  implementation 'com.android.support:support-v4:25.0.0'
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile 'com.android.support:appcompat-v7:25.0.0'
+  compile 'com.github.felHR85:UsbSerial:4.5'
+  compile 'com.github.apl-devs:appintro:v4.2.2'
+}
