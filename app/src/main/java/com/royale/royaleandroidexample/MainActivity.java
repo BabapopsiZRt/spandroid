@@ -45,7 +45,7 @@ public class MainActivity extends AppIntro2 implements TextToSpeech.OnInitListen
   private static final String ACTION_USB_SENSOR_PERMISSION = "ACTION_USB_SENSOR_PERMISSION";
   private static final String ACTION_USB_ARDUINO_PERMISSION = "ACTION_USB_ARDUINO_PERMISSION";
   private static final int CAPTURE_FPS = 10;
-  private static final int[] LEVEL_TRESHOLDS = { 25, 40, 80, 120, 280, 360, 450 };
+  private static final int[] LEVEL_TRESHOLDS = { 0, 30, 80, 160, 280, 360, 450 };
   private static int FPS = CAPTURE_FPS;
 
   static {

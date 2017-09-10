@@ -85,9 +85,9 @@ class MyListener : public IDepthDataListener
 
             // set same value for red, green and blue; alpha to 255; to create gray image
             if (fill[i] > 255 || fill[i] < 0 || fill[i] == 0) {
-                fill[i] = 0 | 0 << 8 | 0 << 16 | 0 << 24;
+                fill[i] = 0 | 0 << 8 | 0 << 16 | 255 << 24;
             } else {
-                fill[i] = fill[i] | fill[i] << 8 | fill[i] << 16 | 255 << 24;
+                fill[i] = 0 | (255 - fill[i]) << 8 | fill[i] << 16 | 255 << 24;
             }
         }
 
