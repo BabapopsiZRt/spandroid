@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.github.mikephil.charting.charts.BarChart;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +18,7 @@ public class DepthCameraFragment extends Fragment {
 
   public static ImageView amplitudeView;
   public static TextView debugTxt;
+  public static BarChart distBarChart;
 
   public DepthCameraFragment() {
   }
@@ -36,6 +38,11 @@ public class DepthCameraFragment extends Fragment {
     View v = inflater.inflate(R.layout.fragment_depth_camera, container, false);
     amplitudeView = (ImageView) v.findViewById(R.id.imageViewAmplitude);
     debugTxt = (TextView) v.findViewById(R.id.txtDebugInfo);
+    distBarChart = (BarChart) v.findViewById(R.id.distChart);
+
+    distBarChart.setDrawValueAboveBar(true);
+    distBarChart.getDescription().setEnabled(false);
+
     return v;
   }
 }

@@ -189,7 +189,9 @@ class MyListener : public IDepthDataListener
 
 MyListener listener;
 
-jintArray Java_com_royale_royaleandroidexample_MainActivity_OpenCameraNative (JNIEnv *env, jobject thiz, jint fd, jint vid, jint pid)
+royale::Vector<royale::String> opModes;
+
+jintArray Java_com_royale_royaleandroidexample_MainActivity_OpenCameraNative (JNIEnv *env, jobject thiz, jint fd, jint vid, jint pid, jint mode)
 {
     // the camera manager will query for a connected camera
     {
@@ -218,11 +220,8 @@ jintArray Java_com_royale_royaleandroidexample_MainActivity_OpenCameraNative (JN
         LOGI ("Cannot initialize the camera device, CODE %d", (int) ret);
     }
 
-    royale::Vector<royale::String> opModes;
     royale::String cameraName;
     royale::String cameraId;
-    
-    cameraDevice->setExposureMode(royale::ExposureMode::AUTOMATIC);
 
     ret = cameraDevice->getUseCases (opModes);
     if (ret != CameraStatus::SUCCESS)
@@ -277,11 +276,13 @@ jintArray Java_com_royale_royaleandroidexample_MainActivity_OpenCameraNative (JN
     }
 
     // set an operation mode
-    ret = cameraDevice->setUseCase (opModes[0]);
+    ret = cameraDevice->setUseCase (opModes[mode]);
     if (ret != CameraStatus::SUCCESS)
     {
         LOGI ("Failed to set use case, CODE %d", (int) ret);
     }
+
+    cameraDevice->setExposureMode(royale::ExposureMode::AUTOMATIC);
 
     ret = cameraDevice->startCapture();
     if (ret != CameraStatus::SUCCESS)
